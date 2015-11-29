@@ -7,18 +7,18 @@ import java.util.Random;
  * a service queue after taking a number, and is served for 
  * a random amount of time.
  * @author Bethy Diakabana
- *
+ * @author Bilgehan Saglik
  */
-public class Producer implements Runnable {
+public class Producer extends Thread {
 	private final static Random generator = new Random();
-	private final Buffer sharedLocation;
+	private final Queue sharedLocation;
 	private final int customerNumber;
 
 	/**
 	 * Initializes a new Producer
-	 * @param sharedLocation a common buffer
+	 * @param sharedLocation a common Queue
 	 */
-	public Producer(Buffer sharedLocation, int customerNumber) {
+	public Producer(Queue sharedLocation, int customerNumber) {
 		this.sharedLocation = sharedLocation;
 		this.customerNumber = customerNumber;
 	} // end constructor 

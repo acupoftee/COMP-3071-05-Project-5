@@ -3,20 +3,21 @@ package comp3071.project5;
 import java.util.Random;
 
 /**
- * uses a run method to reads the values 1 through 10 in buffer
+ * uses a run method to reads the values 1 through 10 in Queue
  * @author Bethy Diakabana
+ * @author Bilgehan Saglik
  *
  */
-public class Consumer implements Runnable {
+public class Consumer extends Thread {
 	private final static Random generator = new Random();
-	private final Buffer sharedLocation;
+	private final Queue sharedLocation;
 	private final int customerNumber;
 	
 	/**
 	 * Initializes a new Consumer
-	 * @param sharedLocation a common buffer
+	 * @param sharedLocation a common Queue
 	 */
-	public Consumer(Buffer sharedLocation, int customerNumber) {
+	public Consumer(Queue sharedLocation, int customerNumber) {
 		this.sharedLocation = sharedLocation;
 		this.customerNumber = customerNumber;
 	} // end constructor
@@ -34,7 +35,7 @@ public class Consumer implements Runnable {
 				Thread.sleep(generator.nextInt(50000));
 				sum += sharedLocation.get();
 				//System.out.printf("\t\t\t%2d\n", sum);
-				System.out.printf("Customer %d entered fish queue\n", customerNumber);
+				System.out.printf("Customer %d left the fish queue\n", customerNumber);
 			} // end try
 			catch (InterruptedException e) {
 				e.printStackTrace();
