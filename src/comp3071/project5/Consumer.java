@@ -1,4 +1,4 @@
-package comp3071.project5.v2;
+package comp3071.project5;
 
 import java.util.Random;
 
