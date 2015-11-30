@@ -1,47 +1,39 @@
-package comp3071.project5;
+package comp3071.project5.v2;
 
 import java.util.Random;
 
 /**
- * Class <tt>Producer</tt> uses a run method to insert customers
- * a service queue after taking a number, and is served for 
- * a random amount of time.
+ * uses a run method to insert the values 1 through 10 in buffer
  * @author Bethy Diakabana
  * @author Bilgehan Saglik
+ *
  */
 public class Producer extends Thread {
 	private final static Random generator = new Random();
-	private final Queue sharedLocation;
-	private final int customerNumber;
-
-	/**
-	 * Initializes a new Producer
-	 * @param sharedLocation a common Queue
-	 */
-	public Producer(Queue sharedLocation, int customerNumber) {
-		this.sharedLocation = sharedLocation;
-		this.customerNumber = customerNumber;
-	} // end constructor 
+	private final Buffer sharedLocation;
+	private final int numberOfCustomers;
 	
 	/**
-	 * Inserts customers into an employee queue for a random amount of time
-	 * 
+	 * Initializes a new Producer
+	 * @param sharedLocation a common buffer
 	 */
+	public Producer(Buffer sharedLocation, int numberOfCustomers) {
+		this.sharedLocation = sharedLocation;
+		this.numberOfCustomers = numberOfCustomers;
+	} // end constructor 
+	
 	@Override
-	public void run() {
-		//int sum = 0;
-		for (int i = 1; i <= customerNumber; i++) {
+	public synchronized void run() {
+		for (int i = 1; i <= numberOfCustomers; i++) {
 			try {
-				Thread.sleep(generator.nextInt(50000));
+				Thread.sleep(generator.nextInt(3000));
 				sharedLocation.set(i);
-				//sum += i;
-				//System.out.printf("\t%2d\n",  sum);
-				System.out.printf("Customer %d entered fish queue\n", i);
+				System.out.printf("Customer %d endtered fish queue\n",  i);
 			} // end try
 			catch (InterruptedException e) {
 				e.printStackTrace();
 			} // end catch
 		} // end for
-		System.out.println("No more customers to serve.");
+		System.out.println("Producer done producing\nTerminating Producer");
 	} // end method run
 } // end class Producer

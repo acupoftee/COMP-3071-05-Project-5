@@ -1,5 +1,11 @@
-package comp3071.project5;
+package comp3071.project5.v2;
 
+/**
+ * Interface <tt>Buffer</tt> specifies methods called by 
+ * <tt>Producer</tt> and <tt>Consumer</tt>
+ * 
+ * @author Bethy Diakabana
+ */
 public interface Buffer {
 	
 	/**
