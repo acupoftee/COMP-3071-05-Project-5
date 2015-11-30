@@ -1,0 +1,27 @@
+Answers
+
+1.	What is the best action a system can take when deadlock is detected?
+
+There are two good solutions to take for deadlock, and depending on the programs, one or the other could be a better solution.
+First and more obvious solution is to terminate programs that cause the problem one by one until deadlock is resolved. But this option is expensive as it results in lost of partial computation.
+Second solution is to allocate more resources to various processes, and they could be successively preemted and allocated to other processes until the deadlock is broken. This option requires more computation and the success is not guranteed.
+
+2.	In the producer-consumer example of Section 13.3, suppose that we incorrectly replaced the release(access) in the consumer process with wait(access). What would be the result of this error on execution of the system?
+
+Deadlock would occur if the release(access) were replaced by a wait(access) in the consumer process, because instead of relinquishing access control, the consumer would wait for control that it already had.
+
+3.	Compare the Java mechanisms for cooperation and competition synchronization with that of Ada.
+
+Concurrent programing is supported by both Java and Ada through different approaches. Java’s thread support is based on special execution properties of methods in several predefined classes, whereas Ada has built-in tasking features with concurrency semantics, independent of the language’s OOP model. Java relies on the classic “monitor” construct with “synchronized” methods while Ada does mutual exclusion through protected objects with encapsulated components. Java gives the low-level “wait” / “notification” methods and Ada implements condition-based synchronization and communication through protected entries or through rendezvous. Both offer timing control, however, Ada also adds user-specifiable scheduling policies. When compared, Ada’s concurrency model is more reliable, better-structured, more completely defined, more efficient, and more appropriate for real-time applications.
+
+4.	What happens if a monitor procedure calls another procedure in the same monitor?
+
+Access mechanisms are part of the monitor and therefore, implementation of a monitor can be made to guarantee synchronized access by allowing only one access at a time. Calls to monitor procedures are implicitly blocked and stored in a queue if the monitor is busy at the time of the call.
+
+Sources:
+
+http://www0.cs.ucl.ac.uk/staff/w.emmerich/publications/ESEC01/ModelChecking/esec.pdf
+
+http://www.sigada.org/conf/sa98/papers/brosgol.pdf
+
+Concepts of programming languages: Robert W. Sebesta
