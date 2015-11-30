@@ -32,7 +32,7 @@ public class CircularBuffer implements Buffer {
 		 * while no data to read, place thread in waiting state.
 		 */
 		while (occupiedBufferCells == 0) {
-			System.out.printf("Customers aren'tbeing served. Employees wait.\n");
+			System.out.printf("Customers aren't being served. Employees wait.\n");
 			wait(); // wait until a buffer cell is filled
 		}
 		
@@ -50,7 +50,7 @@ public class CircularBuffer implements Buffer {
 	
 	public void displayState(String operation) {
 		System.out.printf("%s%s%d)\n%s", operation, 
-				" (employee windows occupied: ", occupiedBufferCells, "windoes remainng: ");
+				" (employee windows occupied: ", occupiedBufferCells, "windows remainng: ");
 		
 		for (int i = 1; i <= sharedBuffer.length; i++)
 			System.out.printf("#%d ", i);

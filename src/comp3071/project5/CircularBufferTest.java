@@ -12,7 +12,7 @@ public class CircularBufferTest {
 		System.out.println();
 		
 		Producer produca = new Producer(buffer, 30);
-		Consumer consuma = new Consumer(buffer, 30);
+		Consumer consuma = new Consumer(buffer, 5);
 		
 		produca.start();
 		consuma.start();
