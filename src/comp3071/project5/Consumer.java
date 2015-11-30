@@ -35,7 +35,7 @@ public class Consumer extends Thread {
 				Thread.sleep(generator.nextInt(50000));
 				sum += sharedLocation.get();
 				//System.out.printf("\t\t\t%2d\n", sum);
-				System.out.printf("Customer %d left the fish queue\n", customerNumber);
+				System.out.printf("Customer %d left the fish queue\n", i);
 			} // end try
 			catch (InterruptedException e) {
 				e.printStackTrace();

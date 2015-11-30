@@ -36,7 +36,7 @@ public class Producer extends Thread {
 				sharedLocation.set(i);
 				//sum += i;
 				//System.out.printf("\t%2d\n",  sum);
-				System.out.printf("Customer %d entered fish queue\n", customerNumber);
+				System.out.printf("Customer %d entered fish queue\n", i);
 			} // end try
 			catch (InterruptedException e) {
 				e.printStackTrace();
