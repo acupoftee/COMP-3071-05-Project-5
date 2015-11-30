@@ -3,6 +3,7 @@ package comp3071.project5;
 public class CircularBufferTest {
 	public static void main(String[] args) {
 		CircularBuffer buffer = new CircularBuffer();
+
 		
 		System.out.println("Simulation Key");
 		System.out.println("----------------------");
@@ -12,7 +13,7 @@ public class CircularBufferTest {
 		System.out.println();
 		
 		Producer produca = new Producer(buffer, 30);
-		Consumer consuma = new Consumer(buffer, 5);
+		Consumer consuma = new Consumer(buffer, 30);
 		
 		produca.start();
 		consuma.start();
