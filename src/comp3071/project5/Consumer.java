@@ -1,5 +1,4 @@
 package comp3071.project5;
-
 import java.util.Random;
 
 /**
@@ -20,7 +19,7 @@ public class Consumer extends Thread {
 	public Consumer(Buffer sharedLocation, int numberOfCustomers) {
 		this.sharedLocation = sharedLocation;
 		this.numberOfCustomers = numberOfCustomers;
-	} // end constructor
+	}
 
 	@Override
 	public synchronized void run() {
@@ -29,14 +28,13 @@ public class Consumer extends Thread {
 			try {
 				Thread.sleep(generator.nextInt(3000));
 				sharedLocation.get();
-				// System.out.printf("\t\t\t%2d\n", sum);
 				System.out.printf("Customer %d left the fish queue\n", i);
-			} // end try
+			}
 			catch (InterruptedException e) {
 				e.printStackTrace();
-			} // end catch
-		} // end for
+			}
+		}
 		System.out.printf("\n%s %d\n%s\n", 
 				"Employees have seen a total of", numberOfCustomers , "customers. Terminating Consumer");
-	} // end method run
-} // end class Consumer
+	}
+}

@@ -14,7 +14,7 @@ public class CircularBuffer implements Buffer {
 		while (occupiedBufferCells == sharedBuffer.length) {
 			System.out.printf("Employee windoes are taken. customers must wait.\n");
 			wait(); // wait until buffer cell is free
-		} // end while
+		}
 		
 		sharedBuffer[elementToBeWritten] = value; // new buffer value
 		
@@ -24,7 +24,7 @@ public class CircularBuffer implements Buffer {
 		++occupiedBufferCells; // one more buffer cell is full
 		displayState("Customer no. " + value + " lines up.");
 		notifyAll(); // notify threads waiting to read from buffer
-	} // end method set
+	}
 
 	@Override
 	public synchronized int get() throws InterruptedException {
@@ -34,7 +34,7 @@ public class CircularBuffer implements Buffer {
 		while (occupiedBufferCells == 0) {
 			System.out.printf("Customers aren'tbeing served. Employees wait.\n");
 			wait(); // wait until a buffer cell is filled
-		} // end while
+		}
 		
 		int readValue = sharedBuffer[elementToBeRead]; // value read from buffer
 		
@@ -46,7 +46,7 @@ public class CircularBuffer implements Buffer {
 		notifyAll();
 		
 		return readValue;
-	} // end method get
+	}
 	
 	public void displayState(String operation) {
 		System.out.printf("%s%s%d)\n%s", operation, 
@@ -81,8 +81,8 @@ public class CircularBuffer implements Buffer {
 				System.out.print("  S  "); // just read index
 			else
 				System.out.print("     ");  // neither
-		} // end for
+		}
 		
 		System.out.println("\n");
-	} // end method displayState
-} // end class CircularBuffer
+	}
+}

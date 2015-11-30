@@ -20,7 +20,7 @@ public class Producer extends Thread {
 	public Producer(Buffer sharedLocation, int numberOfCustomers) {
 		this.sharedLocation = sharedLocation;
 		this.numberOfCustomers = numberOfCustomers;
-	} // end constructor 
+	}
 	
 	@Override
 	public synchronized void run() {
@@ -29,11 +29,11 @@ public class Producer extends Thread {
 				Thread.sleep(generator.nextInt(3000));
 				sharedLocation.set(i);
 				System.out.printf("Customer %d endtered fish queue\n",  i);
-			} // end try
+			}
 			catch (InterruptedException e) {
 				e.printStackTrace();
-			} // end catch
-		} // end for
+			}
+		}
 		System.out.println("Producer done producing\nTerminating Producer");
-	} // end method run
-} // end class Producer
+	}
+}

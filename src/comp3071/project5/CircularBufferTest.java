@@ -1,24 +1,7 @@
 package comp3071.project5;
 
-//import java.util.concurrent.ExecutorService;
-//import java.util.concurrent.Executors;
-
 public class CircularBufferTest {
 	public static void main(String[] args) {
-//		// creates thread pool with two threads
-//		ExecutorService application = Executors.newCachedThreadPool();
-//		
-//		// creates CircularBuffer to store integers
-//		CircularBuffer sharedLocation = new CircularBuffer();
-//		
-//		// display the initial state of the CircularBuffer
-//		sharedLocation.displayState("Initial State");
-//		
-//		// execute the Producer and Consumer tasks
-//		application.execute(new Producer(sharedLocation, 30));
-//		application.execute(new Consumer(sharedLocation, 30));
-//		
-//		application.shutdown();
 		CircularBuffer buffer = new CircularBuffer();
 		
 		System.out.println("Simulation Key");
@@ -34,5 +17,5 @@ public class CircularBufferTest {
 		produca.start();
 		consuma.start();
 		
-	} // end main
-} // end class CircularBufferTest
+	}
+}

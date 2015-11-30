@@ -21,4 +21,4 @@ public interface Buffer {
 	 * @throws InterruptedException
 	 */
 	public int get() throws InterruptedException;
-} // end interface Buffer
+}
